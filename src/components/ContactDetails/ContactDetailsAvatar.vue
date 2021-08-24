@@ -32,7 +32,7 @@
 			@change="processFile">
 
 		<!-- Avatar display -->
-		<div v-if="contact.photo"
+		<div v-if="photoUrl"
 			:style="{ 'backgroundImage': `url(${photoUrl})` }"
 			class="contact-header-avatar__photo"
 			@click="toggleModal" />
@@ -360,7 +360,12 @@ export default {
 		},
 
 		async loadPhotoUrl() {
-			this.photoUrl = await this.contact.getPhotoUrl()
+			const photoUrl = await this.contact.getPhotoUrl()
+			if (!photoUrl) {
+				console.warn('contact has an invalid photo')
+				return
+			}
+			this.photoUrl = photoUrl
 		},
 
 		/**

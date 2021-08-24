@@ -61,15 +61,15 @@ export default {
 			if (this.source.photo) {
 				const photoUrl = await this.source.getPhotoUrl()
 				if (!photoUrl) {
+					console.warn('contact has an invalid photo')
 					// Invalid photo data
-					return undefined
+					return
 				}
-				return `${photoUrl}`
+				this.avatarUrl = photoUrl
 			}
 			if (this.source.url) {
-				return `${this.source.url}?photo`
+				this.avatarUrl = `${this.source.url}?photo`
 			}
-			return undefined
 		},
 
 		/**
