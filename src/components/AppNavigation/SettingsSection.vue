@@ -31,7 +31,7 @@
 				:checked="enableSocialSync"
 				type="checkbox"
 				@change="toggleSocialSync">
-			<label for="socialSyncToggle">{{ t('contacts', 'Update avatars from social media') }}</label>
+			<label for="socialSyncToggle" style="white-space: nowrap;">{{ t('contacts', 'Update avatars from social media') }}</label>
 			<em for="socialSyncToggle">{{ t('contacts', '(refreshed once per week)') }}</em>
 		</div>
 		<div class="settings-addressbook-list__header">
